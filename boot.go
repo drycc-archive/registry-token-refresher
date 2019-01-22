@@ -18,7 +18,7 @@ var registryLocation = os.Getenv("DRYCC_REGISTRY_LOCATION")
 var namespaceRefreshTime = os.Getenv("DRYCC_NAMESPACE_REFRESH_TIME")
 
 const (
-	registryCredLocation = "/var/run/secrets/drycc/registry/creds/"
+	registryCredLocation = "/var/run/secrets/drycc/objectstore/creds/"
 )
 
 func getDiff(appList []string, namespaceList []api.Namespace) ([]string, []string) {
