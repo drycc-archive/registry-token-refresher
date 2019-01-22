@@ -1,4 +1,4 @@
-package: github.com/deis/registry-token-refresher
+package: github.com/drycc/registry-token-refresher
 import:
 - package: github.com/aws/aws-sdk-go
   subpackages:

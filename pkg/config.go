@@ -1,7 +1,7 @@
 package pkg
 
 import (
-	"github.com/deis/registry-token-refresher/pkg/credentials"
+	"github.com/drycc/registry-token-refresher/pkg/credentials"
 	"io/ioutil"
 	"os"
 	"strconv"
@@ -9,7 +9,7 @@ import (
 
 const (
 	gcsKey          = "key.json"
-	tokenRefreshKey = "DEIS_TOKEN_REFRESH_TIME"
+	tokenRefreshKey = "DRYCC_TOKEN_REFRESH_TIME"
 )
 
 func GetRegistryParams(registryCredLocation string) (credentials.Parameters, error) {

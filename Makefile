@@ -6,8 +6,8 @@ include versioning.mk
 export GO15VENDOREXPERIMENT=1
 
 # dockerized development environment variables
-REPO_PATH := github.com/deis/${SHORT_NAME}
-DEV_ENV_IMAGE := quay.io/deis/go-dev:0.20.0
+REPO_PATH := github.com/drycc/${SHORT_NAME}
+DEV_ENV_IMAGE := quay.io/drycc/go-dev:v0.22.0
 DEV_ENV_WORK_DIR := /go/src/${REPO_PATH}
 DEV_ENV_PREFIX := docker run --rm -e GO15VENDOREXPERIMENT=1 -v ${CURDIR}:${DEV_ENV_WORK_DIR} -w ${DEV_ENV_WORK_DIR}
 DEV_ENV_CMD := ${DEV_ENV_PREFIX} ${DEV_ENV_IMAGE}
@@ -20,7 +20,7 @@ LDFLAGS := "-s -w -X main.version=${VERSION}"
 # Docker Root FS
 BINDIR := ./rootfs
 
-DEIS_REGISTRY ?= ${DEV_REGISTRY}/
+DRYCC_REGISTRY ?= ${DEV_REGISTRY}/
 
 all:
 	@echo "Use a Makefile to control top-level building of the project."

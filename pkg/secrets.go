@@ -2,14 +2,14 @@ package pkg
 
 import (
 	"encoding/json"
-	"github.com/deis/registry-token-refresher/pkg/credentials"
+	"github.com/drycc/registry-token-refresher/pkg/credentials"
 	"k8s.io/kubernetes/pkg/api"
 	apierrors "k8s.io/kubernetes/pkg/api/errors"
 	kcl "k8s.io/kubernetes/pkg/client/unversioned"
 	"os"
 )
 
-var secretName = os.Getenv("DEIS_REGISTRY_SECRET_PREFIX") + "-" + os.Getenv("DEIS_REGISTRY_LOCATION")
+var secretName = os.Getenv("DRYCC_REGISTRY_SECRET_PREFIX") + "-" + os.Getenv("DRYCC_REGISTRY_LOCATION")
 
 type AuthsStruct struct {
 	Auths map[string]AuthInfo `json:"auths"`

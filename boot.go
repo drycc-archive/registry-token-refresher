@@ -6,19 +6,19 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/deis/registry-token-refresher/pkg"
-	"github.com/deis/registry-token-refresher/pkg/credentials"
+	"github.com/drycc/registry-token-refresher/pkg"
+	"github.com/drycc/registry-token-refresher/pkg/credentials"
 	"k8s.io/kubernetes/pkg/api"
 	kcl "k8s.io/kubernetes/pkg/client/unversioned"
 	"k8s.io/kubernetes/pkg/fields"
 	"k8s.io/kubernetes/pkg/labels"
 )
 
-var registryLocation = os.Getenv("DEIS_REGISTRY_LOCATION")
-var namespaceRefreshTime = os.Getenv("DEIS_NAMESPACE_REFRESH_TIME")
+var registryLocation = os.Getenv("DRYCC_REGISTRY_LOCATION")
+var namespaceRefreshTime = os.Getenv("DRYCC_NAMESPACE_REFRESH_TIME")
 
 const (
-	registryCredLocation = "/var/run/secrets/deis/registry/creds/"
+	registryCredLocation = "/var/run/secrets/drycc/registry/creds/"
 )
 
 func getDiff(appList []string, namespaceList []api.Namespace) ([]string, []string) {
@@ -110,7 +110,7 @@ func main() {
 		case err = <-tokenRefErrCh:
 			log.Fatalf("error during token refresh %s", err)
 		default:
-			labelMap := labels.Set{"heritage": "deis"}
+			labelMap := labels.Set{"heritage": "drycc"}
 			nsList, err := kubeClient.Namespaces().List(api.ListOptions{LabelSelector: labelMap.AsSelector(), FieldSelector: fields.Everything()})
 			if err != nil {
 				log.Fatal("Error getting kubernetes namespaces ", err)
