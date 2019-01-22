@@ -20,7 +20,7 @@ LDFLAGS := "-s -w -X main.version=${VERSION}"
 # Docker Root FS
 BINDIR := ./rootfs
 
-DRYCC_REGISTRY ?= ${DEV_REGISTRY}/
+DRYCC_REGISTRY ?= ${DEV_REGISTRY}
 
 all:
 	@echo "Use a Makefile to control top-level building of the project."
