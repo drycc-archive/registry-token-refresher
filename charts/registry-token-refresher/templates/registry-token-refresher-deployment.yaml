@@ -47,7 +47,7 @@ spec:
               value: "{{ .Values.token_refresh_time }}"
           volumeMounts:
             - name: registry-secret
-              mountPath: /var/run/secrets/drycc/registry/creds
+              mountPath: /var/run/secrets/drycc/objectstore/creds
               readOnly: true
       volumes:
         - name: registry-secret
