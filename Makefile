@@ -28,7 +28,7 @@ all:
 bootstrap:
 	${DEV_ENV_CMD} glide install
 
-glideup:
+depup:
 	${DEV_ENV_CMD} glide up
 
 # This illustrates a two-stage Docker build. docker-compile runs inside of
@@ -38,7 +38,7 @@ build-binary:
 	${DEV_ENV_CMD} sh -c 'go build -ldflags ${LDFLAGS} -o ${BINARY_DEST_DIR}/boot boot.go; upx -9 ${BINARY_DEST_DIR}/boot'
 
 test:
-	${DEV_ENV_CMD} sh -c 'go test $$(glide nv)'
+	${DEV_ENV_CMD} sh -c 'go test ./...'
 
 update-changelog:
 	${DEV_ENV_PREFIX} -e RELEASE=${WORKFLOW_RELEASE} ${DEV_ENV_IMAGE} gen-changelog.sh \
