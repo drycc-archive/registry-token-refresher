@@ -7,7 +7,7 @@ export GO15VENDOREXPERIMENT=1
 
 # dockerized development environment variables
 REPO_PATH := github.com/drycc/${SHORT_NAME}
-DEV_ENV_IMAGE := golang:1.14
+DEV_ENV_IMAGE := drycc/go-dev
 DEV_ENV_WORK_DIR := /go/src/${REPO_PATH}
 DEV_ENV_PREFIX := docker run --rm -e GO15VENDOREXPERIMENT=1 -v ${CURDIR}:${DEV_ENV_WORK_DIR} -w ${DEV_ENV_WORK_DIR}
 DEV_ENV_CMD := ${DEV_ENV_PREFIX} ${DEV_ENV_IMAGE}
@@ -34,8 +34,11 @@ bootstrap:
 build-binary:
 	${DEV_ENV_CMD} sh -c 'go build -ldflags ${LDFLAGS} -o ${BINARY_DEST_DIR}/boot boot.go'
 
-test:
+test: test-style
 	${DEV_ENV_CMD} sh -c 'go test ./...'
+
+test-style:
+	${DEV_ENV_CMD} lint --deadline
 
 update-changelog:
 	${DEV_ENV_PREFIX} -e RELEASE=${WORKFLOW_RELEASE} ${DEV_ENV_IMAGE} gen-changelog.sh \
