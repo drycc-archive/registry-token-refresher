@@ -1,7 +1,6 @@
 
 # Registry Token Refresher
 [![Build Status](https://travis-ci.org/drycc/registry-token-refresher.svg?branch=master)](https://travis-ci.org/drycc/registry-token-refresher)
-[![Docker Repository on Quay](https://quay.io/repository/drycc/registry-token-refresher/status "Docker Repository on Quay")](https://quay.io/repository/drycc/registry-token-refresher)
 
 Drycc (pronounced DAY-iss) Workflow is an open source Platform as a Service (PaaS) that adds a developer-friendly layer to any [Kubernetes](http://kubernetes.io) cluster, making it easy to deploy and manage applications on your own servers.
 
